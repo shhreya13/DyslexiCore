@@ -1,0 +1,307 @@
+/* TypingQuestStyles.css (Pure CSS) */
+
+/* 1. THE @import RULE MUST BE FIRST */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@700&display=swap');
+
+/* --- Color Variables & Configuration --- */
+
+:root {
+    /* High-contrast Cyberpunk/Dark Theme */
+    --color-bg-dark: #0D0221;
+    --color-bg-lighter: #1A043B;
+    --color-primary-accent: #00D1FF;
+    --color-secondary-accent: #E0B0FF;
+    --color-gold-accent: #FFC107;
+    --color-text-light: #F0EFFF;
+    --color-border-subtle: #3A1E63;
+    --color-progress-bg: #2A1054;
+    --color-correct: #38A169;
+    --color-incorrect: #E53E3E;
+    --color-stat-box-bg: #1B0945;
+}
+
+/* --- Global & Typography Reset --- */
+
+.app-container {
+    min-height: 100vh;
+    padding: 1rem; /* p-4 */
+    background: linear-gradient(145deg, var(--color-bg-dark) 50%, #150535 100%);
+    color: var(--color-text-light);
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+}
+
+.max-w-content {
+    max-width: 56rem; /* max-w-4xl */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (min-width: 640px) {
+    .app-container {
+        padding: 3rem; /* sm:p-12 */
+    }
+}
+
+.font-word {
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: 0.15em;
+}
+
+/* --- Typography Helpers --- */
+
+.text-secondary { color: var(--color-secondary-accent); }
+.text-gold { color: var(--color-gold-accent); }
+.text-correct { color: var(--color-correct); }
+.text-primary-accent { color: var(--color-primary-accent); }
+.text-dimmed { color: var(--color-text-light, #F0EFFF)60; }
+.text-gray-400-custom { color: #9CA3AF; }
+
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-base { font-size: 1rem; }
+.text-lg { font-size: 1.125rem; }
+.text-xl { font-size: 1.25rem; }
+.text-2xl { font-size: 1.5rem; }
+.text-3xl { font-size: 1.875rem; }
+.text-4xl { font-size: 2.25rem; }
+.text-6xl { font-size: 3.75rem; }
+
+/* Global Header Style (Removed effects) */
+.main-header-text { 
+    font-size: 4.5rem; /* 7xl */
+    color: var(--color-primary-accent); /* Simple blue color */
+}
+
+/* Word Play Area Size (Prevents wrapping) */
+.word-display-size { 
+    font-size: 3rem; 
+    /* !!! KEY FIX: Prevent word break/wrapping !!! */
+    white-space: nowrap; 
+    /* Ensures the element is large enough to contain the unwrapped word */
+    width: fit-content; 
+    margin-left: auto;
+    margin-right: auto;
+}
+@media (min-width: 640px) {
+    .main-header-text { font-size: 6rem; } /* sm:text-8xl */
+    .word-display-size { font-size: 6rem; } /* sm:text-6xl */
+}
+
+/* Fix for Input Placement: Ensure input is on a new line after the word */
+.input-wrapper {
+    display: block; /* Ensure it takes full width and forces new line */
+    text-align: center;
+    margin-top: 3rem; /* mt-12 */
+}
+
+
+.font-extrabold { font-weight: 800; }
+.font-bold { font-weight: 700; }
+.uppercase { text-transform: uppercase; }
+.tracking-widest { letter-spacing: 0.1em; }
+
+/* --- Spacing Helpers --- */
+.my-10 { margin-top: 2.5rem; margin-bottom: 2.5rem; }
+.mb-10 { margin-bottom: 2.5rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-1 { margin-bottom: 0.25rem; }
+.mt-2 { margin-top: 0.5rem; }
+.mt-6 { margin-top: 1.5rem; }
+.mt-8 { margin-top: 2rem; }
+.pb-4 { padding-bottom: 1rem; }
+.px-12 { padding-left: 3rem; padding-right: 3rem; }
+.py-5 { padding-top: 1.25rem; padding-bottom: 1.25rem; }
+.px-8 { padding-left: 2rem; padding-right: 2rem; }
+.py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+
+/* --- Layout (Flex and Grid Replacements) --- */
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-col { flex-direction: column; }
+.flex-row { display: flex; }
+.justify-between { justify-content: space-between; }
+.items-center { align-items: center; }
+.block { display: block; }
+.inline-block { display: inline-block; }
+.w-full { width: 100%; }
+.max-w-xl { max-width: 36rem; }
+.min-h-300 { min-height: 300px; }
+
+/* Grid for Stats Bar */
+.grid-gap-6 {
+    display: grid;
+    gap: 1.5rem; /* gap-6 */
+    grid-template-columns: 1fr; /* col-span-1 */
+}
+@media (min-width: 768px) {
+    .grid-gap-6 {
+        grid-template-columns: repeat(3, minmax(0, 1fr)); /* md:grid-cols-3 */
+    }
+}
+
+
+/* --- Section Blocks and Containers --- */
+
+.section-block {
+    background-color: var(--color-bg-lighter);
+    padding: 2.5rem;
+    margin-bottom: 3.5rem;
+    border-radius: 1.5rem;
+    border: 4px solid var(--color-border-subtle);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 15px var(--color-progress-bg) inset;
+    transition: all 0.3s ease;
+}
+
+.stat-box {
+    background-color: var(--color-stat-box-bg);
+    padding: 1.5rem 1rem;
+    border-radius: 1rem;
+    border: 2px solid var(--color-border-subtle);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+    text-align: center;
+    min-height: 150px;
+}
+.stat-box:hover {
+    box-shadow: 0 0 15px var(--color-primary-accent)50;
+    transform: translateY(-2px);
+}
+
+.level-box-glow {
+    border-color: var(--color-gold-accent);
+    box-shadow: 0 0 10px var(--color-gold-accent)40;
+}
+
+.score-box-border {
+    border-color: var(--color-primary-accent);
+}
+
+.progress-box-border {
+    border-color: var(--color-border-subtle);
+}
+
+/* --- Input Styles --- */
+
+.input-style {
+    background-color: var(--color-bg-lighter);
+    color: var(--color-text-light);
+    caret-color: var(--color-primary-accent);
+    border-width: 4px;
+    border-style: solid;
+    border-color: var(--color-border-subtle);
+    box-shadow: 0 0 10px var(--color-primary-accent)30, 0 0 0 1px var(--color-primary-accent)30 inset;
+    border-radius: 1rem; /* rounded-2xl */
+    padding: 1.5rem; /* p-6 */
+    transition: all 0.2s;
+}
+
+.input-focus-ring {
+    /* Manual ring simulation */
+    outline: none;
+    box-shadow: 
+        /* Outer glow/ring (Tailwind focus:ring-4) */
+        0 0 0 4px var(--color-primary-accent), 
+        /* Ring offset (Tailwind focus:ring-offset-4) */
+        0 0 0 8px var(--color-bg-lighter),
+        /* Existing shadow */
+        0 0 10px var(--color-primary-accent)30, 0 0 0 1px var(--color-primary-accent)30 inset;
+}
+
+.input-error {
+    border-color: var(--color-incorrect) !important;
+}
+
+
+/* --- Button Styles --- */
+
+.start-button-bg {
+    background: linear-gradient(45deg, var(--color-primary-accent), #33F0FF); 
+    color: var(--color-bg-dark);
+    border-radius: 9999px; /* rounded-full */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    transition: all 0.2s ease;
+}
+
+.reset-button-style {
+    background-color: var(--color-progress-bg); 
+    color: var(--color-secondary-accent); 
+    border-color: var(--color-border-subtle); 
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 0.75rem; /* rounded-xl */
+}
+
+/* Button Glow/Interaction (Simulating primary-glow-button) */
+.start-button-bg:hover, .reset-button-style:hover {
+    box-shadow: 0 0 25px var(--color-primary-accent)AA, 0 0 5px var(--color-primary-accent)FF;
+    transform: translateY(-3px);
+}
+.start-button-bg:active {
+    transform: scale(0.95);
+}
+
+/* --- Animations and Effects --- */
+
+/* Level pulse */
+@keyframes level-up-pulse {
+    0% { box-shadow: 0 0 0 0px var(--color-gold-accent)55; transform: scale(1); }
+    50% { box-shadow: 0 0 25px 10px var(--color-gold-accent)FF; transform: scale(1.05); }
+    100% { box-shadow: 0 0 0 0px var(--color-gold-accent)55; transform: scale(1); }
+}
+.level-pulse {
+    animation: level-up-pulse 2.5s infinite ease-in-out;
+}
+
+/* Animated Progress Bar Stripes */
+@keyframes progress-stripes {
+    from { background-position: 100% 0; }
+    to { background-position: 0 0; }
+}
+.progress-bar-container {
+    height: 1.5rem; /* h-6 */
+    border-radius: 9999px; /* rounded-full */
+    overflow: hidden;
+    border: 2px solid var(--color-progress-bg);
+    background-color: var(--color-border-subtle);
+}
+.progress-fill {
+    height: 100%;
+    border-radius: 9999px;
+    background-color: var(--color-primary-accent);
+    background-image: linear-gradient(
+        -45deg, 
+        rgba(255, 255, 255, .1) 25%, 
+        transparent 25%, 
+        transparent 50%, 
+        rgba(255, 255, 255, .1) 50%, 
+        rgba(255, 255, 255, .1) 75%, 
+        transparent 75%, 
+        transparent
+    );
+    background-size: 50px 50px;
+    animation: progress-stripes 2s linear infinite;
+    transition: width 0.5s ease-out;
+}
+
+/* Shake Animation */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10% { transform: translateX(-8px) rotate(0.5deg); }
+    20% { transform: translateX(8px) rotate(-0.5deg); }
+    30% { transform: translateX(-8px) rotate(0.5deg); }
+    40% { transform: translateX(8px) rotate(-0.5deg); }
+    50% { transform: translateX(-4px) rotate(0.25deg); }
+    60% { transform: translateX(4px) rotate(-0.25deg); }
+    70% { transform: translateX(-2px) rotate(0.1deg); }
+    80% { transform: translateX(2px) rotate(-0.1deg); }
+    100% { transform: translateX(0); }
+}
+.shake-error {
+    animation: shake 0.5s ease-in-out;
+}

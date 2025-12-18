@@ -1,0 +1,185 @@
+/* ChatStyles.css */
+
+:root {
+    /* Theme based on clean, modern AI interfaces (Gemini-like) */
+    --color-bg-primary: #FFFFFF;        /* White background for the app */
+    --color-bg-chat-window: #F8F9FA;    /* Light Gray for message area */
+    --color-text-dark: #202124;         /* Near-Black for main text */
+    --color-text-dimmed: #747779;       /* Gray for placeholders/hints */
+    
+    /* Brand Colors (Purple/Teal/Blue) */
+    --color-brand-purple: #8c4cb4;      /* Smart Companion Purple */
+    --color-brand-teal: #00897B;        /* AI response accent */
+    --color-brand-blue: #1A73E8;        /* Button/User Message accent */
+    
+    /* UI Elements */
+    --color-border: #DADCE0;            /* Light gray border */
+    --color-input-bg: #E8F0FE;          /* Very light blue for input */
+    --color-shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* --- Global Container --- */
+
+.smart-companion-container {
+    max-width: 800px; 
+    margin: 40px auto; 
+    display: flex; 
+    flex-direction: column;
+    background-color: black; 
+    box-shadow: 0 4px 12px var(--color-shadow);
+    padding: 30px;
+    border-radius: 16px;
+    height: 85vh;
+}
+
+.chat-header {
+    color: var(--color-brand-purple);
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* --- Message Window --- */
+
+.message-window {
+    flex-grow: 1; 
+    overflow-y: auto; 
+    padding: 15px; 
+    border-radius: 12px; 
+    margin-bottom: 20px;
+    background: var(--color-bg-chat-window); 
+    color: var(--color-text-dark);
+    max-height: 100%; /* Use available space */
+    scroll-behavior: smooth;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.initial-prompt {
+    color: var(--color-text-dimmed); 
+    text-align: center; 
+    padding: 20px;
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
+/* --- Individual Message Bubbles --- */
+
+.message-bubble-row {
+    display: flex; 
+}
+
+.user-message-row {
+    justify-content: flex-end;
+}
+
+.ai-message-row {
+    justify-content: flex-start;
+}
+
+.message-bubble {
+    max-width: 80%;
+    padding: 12px 18px;
+    border-radius: 20px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.user-message {
+    background-color: var(--color-brand-blue); 
+    color: var(--color-bg-primary); /* White text */
+    border-top-right-radius: 5px; /* Sharp corner to distinguish from AI */
+}
+
+.ai-message {
+    background-color: var(--color-bg-primary); 
+    color: var(--color-text-dark);
+    border: 1px solid var(--color-border);
+    border-top-left-radius: 5px; /* Sharp corner to distinguish from User */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* --- Quick Question Prompts --- */
+.quick-question-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px 0;
+    justify-content: center;
+}
+
+.quick-question-button {
+    padding: 8px 15px;
+    background-color: var(--color-bg-primary);
+    color: var(--color-brand-purple);
+    border: 1px solid var(--color-primary-light);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.quick-question-button:hover {
+    background-color: #F0E5FF;
+    box-shadow: 0 1px 5px rgba(106, 27, 154, 0.1);
+}
+
+
+/* --- Input Area --- */
+
+.chat-input-area {
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    background: var(--color-bg-primary);
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.chat-input {
+    flex-grow: 1;
+    border: none;
+    padding: 12px 15px;
+    border-radius: 8px;
+    background-color: var(--color-input-bg);
+    color: var(--color-text-dark);
+    font-size: 1rem;
+}
+.chat-input::placeholder {
+    color: var(--color-text-dimmed);
+}
+.chat-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-brand-blue);
+}
+
+.send-button {
+    width: 15%; 
+    min-width: 80px; 
+    padding: 10px;
+    background-color: var(--color-brand-blue);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.send-button:hover:not(:disabled) {
+    background-color: #1565C0;
+}
+
+.send-button:disabled {
+    background-color: #B0C4DE;
+    cursor: not-allowed;
+}
+
+.loading-text {
+    text-align: left; 
+    font-style: italic; 
+    color: var(--color-text-dimmed);
+}

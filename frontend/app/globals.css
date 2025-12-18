@@ -1,0 +1,472 @@
+/* frontend/app/globals.css - Deep Purple Quest Theme with HIGHLY Enhanced Animations */
+
+/* --- Color Variables --- */
+:root {
+    /* Deep Purple Palette */
+    --color-primary: #6A1B9A;        /* Deep Purple (Main Branding, Buttons, Dark Text) */
+    --color-secondary: #9C27B0;      /* Medium Purple (Accents, Button Hover) */
+    --color-tertiary: #4A148C;       /* Darker Purple (Strong Shadows, Header Background) */
+    --color-background-page: #f3e5f5; /* Very Light Lavender (Main page background) */
+    --color-background-card: #EDE7F6; /* Light Lavender/Lilac (Used for cards/forms) */
+    --color-text-dark: #4A148C;      /* Darkest Purple Text */
+    --color-gold-accent: #FFD700;    /* Gold (Highlight, Magic elements) */
+    --color-success: #50C878;        /* Emerald Green for success */
+    --color-error: #FF5733;          /* Red for errors */
+}
+
+/* --- Keyframe Animations --- */
+
+/* For Start Assessment Button */
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(80, 200, 120, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(80, 200, 120, 0); } /* Increased size */
+    100% { box-shadow: 0 0 0 0 rgba(80, 200, 120, 0); }
+}
+
+/* For Feature Cards on Dashboard/Support */
+@keyframes cardFloat {
+    0% { transform: translateY(0) rotateZ(0deg); }
+    50% { transform: translateY(-8px) rotateZ(0.5deg); } /* More dramatic lift and slight rotation */
+    100% { transform: translateY(0) rotateZ(0deg); }
+}
+
+/* For Homepage Main Content */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Subtle Shine on Header/Logo */
+@keyframes headerShine {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* --- Global Base Styles --- */
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-background-page); 
+    color: var(--color-text-dark);
+}
+
+.container {
+    padding: 3rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- Navbar Styles --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    /* Enhanced Background with subtle gradient and shine */
+    background: var(--color-tertiary); 
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    position: sticky; /* Keeps the navbar fixed at the top */
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 900; 
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--color-gold-accent); 
+    /* Subtle text shadow for depth */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.nav-links {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 9999px; 
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.nav-links a:hover {
+    background-color: var(--color-secondary);
+    transform: scale(1.1) translateY(-2px); /* More noticeable hover effect */
+}
+
+.logout-btn {
+    background: none;
+    border: 3px solid var(--color-gold-accent); /* Gold border for emphasis */
+    color: var(--color-gold-accent);
+    cursor: pointer;
+    padding: 8px 16px;
+    border-radius: 9999px;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.logout-btn:hover {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 15px var(--color-gold-accent); /* Gold glow on hover */
+}
+
+.welcome {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-gold-accent);
+}
+
+/* --- Forms and General Containers (Login, Register, Assessment) --- */
+.form-container {
+    background: var(--color-background-card); 
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25); /* Deeper shadow */
+    max-width: 450px;
+    margin: 3rem auto;
+    border-top: 8px solid var(--color-secondary);
+}
+
+.form-container h1 {
+    text-align: center;
+    color: var(--color-primary);
+    margin-bottom: 2rem;
+    font-size: 2.2rem;
+}
+
+.form-container input,
+.form-container select {
+    width: 100%;
+    padding: 14px;
+    margin: 12px 0;
+    border: 1px solid var(--color-secondary); 
+    background-color: white;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    color: var(--color-text-dark);
+    transition: all 0.3s;
+}
+
+.form-container input:focus,
+.form-container select:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 8px rgba(106, 27, 154, 0.5); /* Glowing focus */
+    outline: none;
+}
+
+.form-container button {
+    width: 100%;
+    padding: 16px;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-top: 25px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.form-container button:hover {
+    background-color: var(--color-secondary);
+    transform: translateY(-4px) scale(1.01); /* Dramatic lift */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.message-success {
+    color: var(--color-success);
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+}
+.message-error {
+    color: var(--color-error);
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* --- Dashboard Specific Styles --- */
+.dashboard-card {
+    background-color: white; /* Brighter inner card */
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    border-left: 8px solid var(--color-primary);
+    transition: all 0.4s;
+}
+
+.dashboard-card:hover {
+    border-left: 8px solid var(--color-gold-accent); /* Border change on hover */
+    transform: translateX(5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.dashboard-card h2 {
+    color: var(--color-primary);
+    margin-top: 0;
+}
+
+.history-table th {
+    background-color: var(--color-secondary); 
+    color: white;
+    padding: 14px 15px;
+    text-align: left;
+    border-bottom: 3px solid var(--color-primary);
+}
+
+.history-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--color-background-card);
+    background-color: white;
+}
+
+/* Custom button for Assessment start */
+.start-assessment-btn {
+    padding: 20px 40px;
+    font-size: 1.5rem;
+    background-color: var(--color-success) !important;
+    border-radius: 50px !important;
+    box-shadow: 0 8px 20px rgba(80, 200, 120, 0.4);
+    animation: pulse 2s infinite; 
+}
+
+.start-assessment-btn:hover {
+    background-color: #38a169 !important;
+    animation: none;
+    transform: scale(1.05) translateY(-2px);
+}
+
+
+/* --- Feature Grid and Card Styling (Pretty Enhancements) --- */
+.feature-grid-section {
+    padding-top: 2rem;
+    text-align: center;
+}
+
+.feature-grid-section h2 {
+    font-size: 2.8rem;
+    color: var(--color-primary);
+    margin-bottom: 3.5rem;
+    font-weight: 900;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.feature-card {
+    background-color: var(--color-background-card); 
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    text-align: left;
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1); 
+    border-bottom: 8px solid var(--color-secondary); 
+}
+
+.feature-card:hover {
+    transform: translateY(-15px) scale(1.04); /* Maximum lift */
+    box-shadow: 0 25px 40px rgba(0, 0, 0, 0.25); 
+    border-bottom: 8px solid var(--color-primary); 
+}
+
+/* Support Hub Card Animation */
+.support-card:hover {
+    animation: cardFloat 2s ease-in-out infinite; /* Slower, smoother wave */
+}
+
+
+.feature-icon-box {
+    width: 75px;
+    height: 75px;
+    background-color: var(--color-primary); 
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+    font-size: 3rem; /* Larger icon */
+    color: var(--color-gold-accent); 
+    box-shadow: 0 0 0 10px rgba(106, 27, 154, 0.2); 
+    transition: all 0.4s;
+}
+
+.feature-card:hover .feature-icon-box {
+    box-shadow: 0 0 0 20px rgba(106, 27, 154, 0.5); /* Intense glow on hover */
+    background-color: var(--color-secondary);
+}
+
+.card-title {
+    color: var(--color-text-dark);
+    font-size: 2rem; 
+    font-weight: 900;
+    margin-top: 0;
+}
+
+.card-description {
+    color: #444; 
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.card-action-btn {
+    padding: 15px 30px;
+    background-color: var(--color-secondary);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1.05rem;
+    font-weight: bold;
+    transition: all 0.3s;
+    width: auto; 
+}
+
+.card-action-btn:hover {
+    background-color: var(--color-primary);
+    transform: scale(1.05);
+}
+
+
+/* --- Homepage Styles (Integrated into Purple Theme) --- */
+
+.homepage-container {
+    display: flex;
+    min-height: calc(100vh - 80px); 
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-background-page); 
+}
+
+.homepage-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 5rem 3rem;
+    max-width: 900px;
+    background-color: white;
+    border-radius: 25px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    border-top: 10px solid var(--color-primary);
+    animation: fadeIn 1s ease-out;
+}
+
+.homepage-title {
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.homepage-subtitle {
+    font-size: 1.5rem;
+    color: var(--color-text-dark);
+    margin-bottom: 4rem;
+    max-width: 700px;
+}
+
+.homepage-cta-group {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.cta-button {
+    padding: 1.2rem 3rem;
+    border-radius: 50px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    min-width: 240px;
+    text-align: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.cta-button:hover {
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.primary-cta {
+    background-color: var(--color-primary);
+    color: white;
+    border: 3px solid var(--color-primary);
+}
+
+.primary-cta:hover {
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
+}
+
+.secondary-cta {
+    background-color: white;
+    color: var(--color-primary);
+    border: 3px solid var(--color-primary);
+}
+
+.secondary-cta:hover {
+    background-color: var(--color-background-card);
+}
+
+.homepage-learn-more a {
+    color: var(--color-secondary);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.homepage-learn-more a:hover {
+    text-decoration: underline;
+    color: var(--color-primary);
+}
+
+@media (max-width: 768px) {
+    .homepage-title {
+        font-size: 3rem;
+    }
+    .homepage-subtitle {
+        font-size: 1.2rem;
+    }
+    .homepage-main {
+        padding: 3rem 1.5rem;
+    }
+    .homepage-cta-group {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .cta-button {
+        min-width: 80%;
+    }
+}
+
+@media (max-width: 600px) {
+    .navbar {
+        padding: 1rem 1rem;
+    }
+    .nav-links {
+        gap: 10px;
+    }
+    .nav-links a, .logout-btn {
+        padding: 6px 8px;
+        font-size: 0.8rem;
+    }
+}

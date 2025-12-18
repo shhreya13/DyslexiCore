@@ -1,0 +1,105 @@
+/* AuthStyles.css */
+
+:root {
+    --color-primary: #800080;        /* Deep Purple */
+    --color-primary-light: #C39BE5;  /* Soft Lavender */
+    --color-background: #F8F4FF;     /* Light Lavender/Off-White */
+    --color-text-dark: #1F0839;      /* Dark Plum */
+    --color-success: #4ade80;        /* Green for success */
+    --color-error: #ef4444;          /* Red for errors */
+    --color-shadow: rgba(128, 0, 128, 0.15); 
+}
+
+/* --- Container and Form Styling --- */
+
+.auth-page-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    background-color: var(--color-background);
+}
+
+.form-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 40px;
+    background-color: var(--color-background-card, #FFFFFF);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px var(--color-shadow);
+}
+
+.form-container h1 {
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-container input {
+    padding: 12px 15px;
+    border: 2px solid var(--color-primary-light);
+    border-radius: 8px;
+    font-size: 1rem;
+    color: var(--color-text-dark);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-container input:focus {
+    border-color: var(--color-primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(128, 0, 128, 0.2);
+}
+
+/* --- Button Styling --- */
+.form-container button[type="submit"] {
+    padding: 12px;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.form-container button[type="submit"]:hover {
+    background-color: #A020F0; /* Brighter purple on hover */
+    transform: translateY(-1px);
+}
+
+/* --- Message and Link Styling --- */
+.message-error {
+    color: var(--color-error);
+    background-color: rgba(239, 68, 68, 0.1);
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.message-success {
+    color: var(--color-success);
+    background-color: rgba(74, 222, 128, 0.1);
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.form-container p a {
+    color: var(--color-primary);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.form-container p a:hover {
+    text-decoration: underline;
+}
