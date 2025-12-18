@@ -1,0 +1,9 @@
+A great README makes your GitHub repository look professional and helps judges understand the technical depth of your project.Here is a scannable, high-impact README for DyslexiCore.🚀 DyslexiCore: Early Literacy & Diagnostic EcosystemDyslexiCore is an all-in-one gamified screening and intervention platform designed for neurodivergent learners. It replaces traditional, high-stress dyslexia screening with interactive space missions, providing immediate data-driven insights through a full-stack architecture.🌟 Key Features🕹️ Diagnostic Missions:Star Tracker: Measures visual saccades and tracking focus.Phoneme Popper: Assesses phonological decoding and naming speed.📚 Intervention Quests: * CVC Word Explorer: Focused modules (Short 'A') to master phonics patterns.Typing Quest: Multi-sensory reinforcement of sound-symbol connections.📊 Mission Control: A persistent dashboard for parents/educators to track risk profiles.🤖 Smart Companion: LLM-powered tutor providing real-time hints and encouragement.🛠️ Tech StackLayerTechnologyFrontendNext.js 14, React, TypeScript, Tailwind CSSBackendFastAPI (Python)DatabaseSQLite with SQLAlchemy ORMAuthJWT (JSON Web Tokens) & SHA-256 HashingStylingFramer Motion & CSS Animations🚀 Getting Started1. PrerequisitesNode.js (v18+)Python 3.9+2. Backend SetupBashcd backend
+python -m venv venv
+source venv/bin/activate  # venv\Scripts\activate on Windows
+pip install -r requirements.txt
+uvicorn main:app --reload
+3. Frontend SetupBashcd frontend
+npm install
+npm run dev
+Navigate to http://localhost:3000 to start the mission!🧠 Why it MattersDyslexia is often identified too late. DyslexiCore shifts the paradigm from "Wait to Fail" to "Play to Succeed", using gamified metrics to catch literacy gaps years before they become obstacles.
