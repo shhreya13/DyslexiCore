@@ -50,3 +50,30 @@ python -m venv venv
 source venv/bin/activate  # Use `venv\Scripts\activate` on Windows
 pip install -r requirements.txt
 uvicorn main:app --reload
+```
+### **2. Frontend Setup**
+Open a new terminal and run:
+```bash
+cd frontend
+npm install
+npm run dev
+```
+Navigate to **http://localhost:3000** to start the mission!
+
+## Future Roadmap
+🎤 Vocal Assessment: Integrate Speech-to-Text to track oral reading fluency.
+
+🧩 Advanced Phonics: Expand quests to include Diphthongs and Long Vowel patterns.
+
+🏫 Teacher Portal: Classroom-wide screening tools for educators.
+
+---
+## 🛠️ Challenges Overcome
+Data Persistence: Syncing real-time game states (Star hits/misses) with a persistent SQLite database via FastAPI.
+Accessible UI: Designing high-contrast, low-anxiety interfaces specifically for children with visual processing difficulties.
+
+
+---
+
+© 2024 DyslexiCore | Built for the Hackathon
+
