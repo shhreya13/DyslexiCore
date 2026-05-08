@@ -1,0 +1,20 @@
+{
+  "name": "DyslexiCore Agent",
+  "description": "An AI healthcare agent for early dyslexia screening and intervention planning in children.",
+  "version": "1.0.0",
+  "capabilities": [
+    "FHIR patient context handling",
+    "Dyslexia risk scoring",
+    "Phoneme confusion analysis",
+    "Letter reversal pattern detection",
+    "Personalized intervention recommendation"
+  ],
+  "input_context": {
+    "standard": "FHIR",
+    "resource": "Patient"
+  },
+  "output": {
+    "risk_level": "Low | Moderate | High",
+    "recommendation": "Personalized learning intervention plan"
+  }
+}

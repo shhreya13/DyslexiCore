@@ -1,0 +1,113 @@
+/* DashboardStyles.css */
+
+:root {
+    /* Reusing Variables for Theme Consistency */
+    --color-primary: #800080;        /* Deep Purple (Main Accent) */
+    --color-secondary: #00D1FF;      /* Cyan/Blue (Secondary Accent) */
+    --color-background: #F8F4FF;     /* Light Lavender/Off-White */
+    --color-background-card: #FFFFFF;
+    --color-text-dark: #1F0839;      /* Dark Plum */
+    --color-shadow-purple: rgba(128, 0, 128, 0.25); 
+}
+
+/* --- Page Structure --- */
+
+.dashboard-container {
+    padding: 30px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'Arial', sans-serif;
+    color: var(--color-text-dark);
+}
+
+.dashboard-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.welcome-title {
+    color: var(--color-primary);
+    font-size: 3rem;
+    margin: 0 0 10px 0;
+    font-weight: 800;
+}
+
+.welcome-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-dark);
+}
+
+/* --- Feature Grid --- */
+
+.feature-grid {
+    display: grid;
+    gap: 30px;
+    /* Two large columns on desktop, one column on mobile is implied by no media query */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+}
+
+/* --- Card Styles --- */
+
+.feature-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+}
+
+.feature-card {
+    background: var(--color-background-card);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 6px 15px var(--color-shadow-purple);
+    border: 3px solid transparent;
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px var(--color-shadow-purple);
+    border-color: var(--color-secondary); /* Highlight border on hover */
+}
+
+/* Specific Card Color Coding */
+
+.card-learn { border-bottom: 8px solid var(--color-secondary); } /* Blue/Teal for Learning */
+.card-chat { border-bottom: 8px solid var(--color-primary); }    /* Purple for Companion */
+.card-support { border-bottom: 8px solid #84cc16; }             /* Green for Support */
+
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.card-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    color: var(--color-text-dark);
+}
+
+.card-description {
+    font-size: 1rem;
+    color: var(--color-text-dimmed);
+    margin-bottom: 20px;
+    flex-grow: 1; /* Ensures card height uniformity */
+}
+
+.card-action {
+    font-weight: 700;
+    color: var(--color-primary);
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--color-primary-light);
+}
+
+.card-learn .card-action { color: var(--color-secondary); border-top-color: var(--color-secondary); }

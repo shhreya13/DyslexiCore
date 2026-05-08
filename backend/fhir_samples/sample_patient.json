@@ -1,0 +1,17 @@
+{
+  "resourceType": "Patient",
+  "id": "child-001",
+  "name": [
+    {
+      "given": ["Anaya"]
+    }
+  ],
+  "gender": "female",
+  "birthDate": "2018-06-12",
+  "extension": [
+    {
+      "url": "https://dyslexicore.ai/fhir/StructureDefinition/dyslexia-risk",
+      "valueString": "Moderate"
+    }
+  ]
+}

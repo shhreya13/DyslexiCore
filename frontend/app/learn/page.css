@@ -1,0 +1,157 @@
+/* PhonicsStyles.css (Revisiting the Theme) */
+
+:root {
+    /* Primary Purple Theme Variables */
+    --color-primary: #800080;        /* Deep Purple/Magenta */
+    --color-primary-light: #C39BE5;  /* Soft Lavender/Light Purple */
+    --color-secondary: #00D1FF;      /* Cyan/Blue (Accent) */
+    --color-background: #F8F4FF;     /* Very Light Lavender/Off-White */
+    --color-background-card: #FFFFFF;
+    --color-text-dark: #1F0839;      /* Dark Plum for main text */
+    --color-text-light: #FFFFFF;     /* White for contrast */
+    --color-correct: #38A169;        /* Green for correct */
+    --color-incorrect: #E53E3E;      /* Red for incorrect */
+    --color-disabled: #A0AEC0;       /* Light Gray for disabled elements */
+    --color-current-goal: #84cc16;   /* Olive Green (Retained for Goal status) */
+}
+
+/* --- Global & Typography --- */
+body {
+    background-color: var(--color-background);
+    color: var(--color-text-dark);
+    font-family: 'Arial', sans-serif;
+}
+
+h1, h2 {
+    color: var(--color-text-dark);
+}
+
+/* --- Lesson Page Styles (Retained for LessonPage.tsx) --- */
+.lesson-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: var(--color-background-card);
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(128, 0, 128, 0.15); 
+}
+/* ... (Rest of the Lesson Page Styles) ... */
+
+
+/* --- Module Page Styles (New for page.tsx) --- */
+
+.modules-page-container {
+    padding: 30px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.modules-header {
+    color: var(--color-primary);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.welcome-message {
+    font-size: 1.1rem;
+    color: var(--color-text-dark);
+    margin-bottom: 40px;
+}
+
+.module-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.module-card-link {
+    text-decoration: none;
+    display: block;
+    height: 100%;
+    /* Override Next.js Link behavior for disabled modules */
+    pointer-events: auto; 
+}
+
+.module-card {
+    background: var(--color-background-card);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-left: 8px solid var(--color-primary-light);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Specific Border Colors */
+.border-current-goal { border-left-color: var(--color-current-goal); }
+.border-unlocked { border-left-color: var(--color-secondary); }
+.border-locked { border-left-color: var(--color-disabled); }
+
+.module-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(128, 0, 128, 0.2); /* Lift and subtle purple glow on hover */
+}
+
+.module-card.locked {
+    opacity: 0.6;
+    cursor: default;
+}
+
+.module-title {
+    margin: 0 0 10px 0;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.module-status {
+    margin: 0 0 15px 0;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.status-current-goal { color: var(--color-current-goal); }
+.status-unlocked { color: var(--color-secondary); }
+.status-locked { color: var(--color-disabled); }
+
+.start-button {
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    color: var(--color-text-light);
+    transition: background-color 0.2s, transform 0.2s;
+    margin-top: auto; /* Push button to the bottom */
+}
+
+.button-current-goal { background-color: var(--color-current-goal); }
+.button-unlocked { background-color: var(--color-primary); }
+
+.start-button:hover:not(:disabled) {
+    opacity: 0.9;
+    transform: scale(1.02);
+}
+
+.start-button:disabled {
+    background-color: var(--color-disabled);
+    cursor: default;
+    color: var(--color-text-dark);
+}
+
+.back-link {
+    display: block;
+    margin-top: 40px;
+    text-align: center;
+    font-weight: bold;
+    color: var(--color-primary);
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+.back-link:hover {
+    color: #A020F0;
+}
